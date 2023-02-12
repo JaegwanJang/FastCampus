@@ -1,18 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nlb-sample-service
-  namespace: test-service-nlb
+  name: nlb-kubernetes-dashboard
+  namespace: kubernetes-dashboard
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: external
     service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-    service.beta.kubernetes.io/subnets: <Public Subnet1 ID>, <Public Subnet2 ID>
+    service.beta.kubernetes.io/subnets: subnet-0d1a0fe011b100a54, subnet-00bcb2b7bb505ca3e
 spec:
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8443
       protocol: TCP
   type: LoadBalancer
   selector:
-    app: nginx
+    app: kubernetes-dashboard
+    k8s-app:

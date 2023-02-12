@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-2048
@@ -7,12 +7,14 @@ metadata:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/subnets: <Public Subnet1 ID>, <Public Subnet2 ID>
+    alb.ingress.kubernetes.io/subnets: subnet-00bcb2b7bb505ca3e, subnet-0d1a0fe011b100a54
 spec:
   rules:
     - http:
         paths:
-          - path: /*
-            backend:
-              serviceName: service-2048
-              servicePort: 80
+        - pathType: ImplementationSpecific
+          backend:
+            service:
+              name: service-2048
+              port:
+                number: 80

@@ -1,9 +1,9 @@
 ############ Public Subnets ############
 
-resource "aws_subnet" "test-public-subnet1" {
+resource "aws_subnet" "wclub-int-public-subnet1" {
 
   depends_on = [
-    aws_vpc.test-vpc
+    aws_vpc.wclub-int-vpc
   ]
 
   assign_ipv6_address_on_creation                = "false"
@@ -16,25 +16,25 @@ resource "aws_subnet" "test-public-subnet1" {
   private_dns_hostname_type_on_launch            = "ip-name"
 
   tags = {
-    Name                                     = "test-public-subnet1"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-public-subnet1"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
     "kubernetes.io/role/elb"                 = 1
   }
 
   tags_all = {
-    Name                                     = "test-public-subnet1"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-public-subnet1"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
     "kubernetes.io/role/elb"                 = 1
   }
 
-  vpc_id = aws_vpc.test-vpc.id
+  vpc_id = aws_vpc.wclub-int-vpc.id
   availability_zone = "ap-northeast-2a"
 }
 
-resource "aws_subnet" "test-public-subnet3" {
+resource "aws_subnet" "wclub-int-public-subnet3" {
 
   depends_on = [
-    aws_vpc.test-vpc
+    aws_vpc.wclub-int-vpc
   ]
 
   assign_ipv6_address_on_creation                = "false"
@@ -47,27 +47,27 @@ resource "aws_subnet" "test-public-subnet3" {
   private_dns_hostname_type_on_launch            = "ip-name"
 
   tags = {
-    Name                                     = "test-public-subnet3"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-public-subnet3"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
     "kubernetes.io/role/elb"                 = 1
   }
 
   tags_all = {
-    Name                                     = "test-public-subnet3"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-public-subnet3"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
     "kubernetes.io/role/elb"                 = 1
   }
 
-  vpc_id = aws_vpc.test-vpc.id
+  vpc_id = aws_vpc.wclub-int-vpc.id
   availability_zone = "ap-northeast-2c"
 }
 
 ############ Private Subnets ############
 
-resource "aws_subnet" "test-private-subnet1" {
+resource "aws_subnet" "wclub-int-private-subnet1" {
 
   depends_on = [
-    aws_vpc.test-vpc
+    aws_vpc.wclub-int-vpc
   ]
 
   assign_ipv6_address_on_creation                = "false"
@@ -80,23 +80,23 @@ resource "aws_subnet" "test-private-subnet1" {
   private_dns_hostname_type_on_launch            = "ip-name"
 
   tags = {
-    Name                                     = "test-private-subnet1"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-private-subnet1"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
   }
 
   tags_all = {
-    Name                                     = "test-private-subnet1"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-private-subnet1"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
   }
 
-  vpc_id = aws_vpc.test-vpc.id
+  vpc_id = aws_vpc.wclub-int-vpc.id
   availability_zone = "ap-northeast-2a"
 }
 
-resource "aws_subnet" "test-private-subnet3" {
+resource "aws_subnet" "wclub-int-private-subnet3" {
 
   depends_on = [
-    aws_vpc.test-vpc
+    aws_vpc.wclub-int-vpc
   ]
 
   assign_ipv6_address_on_creation                = "false"
@@ -109,15 +109,15 @@ resource "aws_subnet" "test-private-subnet3" {
   private_dns_hostname_type_on_launch            = "ip-name"
 
   tags = {
-    Name                                     = "test-private-subnet3"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-private-subnet3"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
   }
 
   tags_all = {
-    Name                                     = "test-private-subnet3"
-    "kubernetes.io/cluster/test-eks-cluster" = "shared"
+    Name                                     = "wclub-int-private-subnet3"
+    "kubernetes.io/cluster/wclub-eks-cluster" = "shared"
   }
 
-  vpc_id = aws_vpc.test-vpc.id
+  vpc_id = aws_vpc.wclub-int-vpc.id
   availability_zone = "ap-northeast-2c"
 }

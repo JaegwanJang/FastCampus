@@ -1,4 +1,4 @@
-resource "aws_vpc" "test-vpc" {
+resource "aws_vpc" "wclub-int-vpc" {
   assign_generated_ipv6_cidr_block = "false"
   cidr_block                       = "10.1.0.0/16"
   enable_dns_hostnames             = "true"
@@ -6,10 +6,12 @@ resource "aws_vpc" "test-vpc" {
   instance_tenancy                 = "default"
 
   tags = {
-    Name = "test-vpc"
+    Name = "wclub-int-vpc"
   }
 
   tags_all = {
-    Name = "test-vpc"
+    Name = "wclub-vpc"
+    fullName = "wclub-internal-vpc"
+    owner = "wclub"
   }
 }
