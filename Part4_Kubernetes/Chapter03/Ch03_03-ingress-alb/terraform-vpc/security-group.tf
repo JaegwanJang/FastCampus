@@ -1,7 +1,7 @@
-resource "aws_security_group" "wclub-int-sg-bastion" {
+resource "aws_security_group" "test-int-sg-bastion" {
 
-  name   = "wclub-int-sg-bastion"
-  vpc_id = aws_vpc.wclub-int-vpc.id
+  name   = "test-int-sg-bastion"
+  vpc_id = aws_vpc.test-int-vpc.id
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -22,6 +22,6 @@ resource "aws_security_group" "wclub-int-sg-bastion" {
   }
 
   tags = {
-    Name = "wclub-int-sg-bastion"
+    Name = "test-int-sg-bastion"
   }
 }

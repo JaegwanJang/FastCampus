@@ -1,8 +1,8 @@
-resource "aws_internet_gateway" "wclub-int-internet-gateway" {
+resource "aws_internet_gateway" "test-int-internet-gateway" {
 
   depends_on = [
-    aws_vpc.wclub-int-vpc
+    aws_vpc.test-int-vpc
   ]
 
-  vpc_id = aws_vpc.wclub-int-vpc.id
+  vpc_id = aws_vpc.test-int-vpc.id
 }

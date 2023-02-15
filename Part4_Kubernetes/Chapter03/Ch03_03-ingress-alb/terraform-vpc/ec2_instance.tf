@@ -1,11 +1,11 @@
-resource "aws_instance" "wclub-int-ec2-bastion" {
+resource "aws_instance" "test-int-ec2-bastion" {
 
   ami                         = "ami-0454bb2fefc7de534"
   associate_public_ip_address = "true"
   availability_zone           = "ap-northeast-2a"
 
-  iam_instance_profile        = aws_iam_instance_profile.wclub-int-ec2-instance-profile.name
-  key_name                    = "wclub-server"
+  iam_instance_profile        = aws_iam_instance_profile.test-int-ec2-instance-profile.name
+  key_name                    = "test-server"
 
   capacity_reservation_specification {
     capacity_reservation_preference = "open"
@@ -41,7 +41,7 @@ resource "aws_instance" "wclub-int-ec2-bastion" {
     encrypted             = "false"
 
     tags = {
-      Name        = "wclub-int-ec2-bastion-ebs"
+      Name        = "test-int-ec2-bastion-ebs"
     }
 
     volume_size = "8"
@@ -52,16 +52,16 @@ resource "aws_instance" "wclub-int-ec2-bastion" {
 
 
   tags = {
-    Name        = "wclub-int-ec2-bastion"
+    Name        = "test-int-ec2-bastion"
   }
 
   tags_all = {
-    Name        = "wclub-int-ec2-bastion"
+    Name        = "test-int-ec2-bastion"
   }
 
   tenancy       = "default"
 
-  subnet_id     = aws_subnet.wclub-int-public-subnet1.id
-  vpc_security_group_ids = [aws_security_group.wclub-int-sg-bastion.id]
+  subnet_id     = aws_subnet.test-int-public-subnet1.id
+  vpc_security_group_ids = [aws_security_group.test-int-sg-bastion.id]
 }
 
